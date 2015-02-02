@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="CalculateurImplService" 
+targetNamespace="http://service.tp/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.tp/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://service.tp/" version="1.0" xmlns:tns="http://service.tp/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="addition" type="tns:addition"/>
+<xs:element name="additionResponse" type="tns:additionResponse"/>
+<xs:element name="getAuteur" type="tns:getAuteur"/>
+<xs:element name="getAuteurResponse" type="tns:getAuteurResponse"/>
+<xs:element name="multiplication" type="tns:multiplication"/>
+<xs:element name="multiplicationResponse" type="tns:multiplicationResponse"/>
+<xs:complexType name="addition">
+    <xs:sequence>
+      <xs:element name="a" type="xs:double"/>
+      <xs:element name="b" type="xs:double"/>
+
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="additionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getAuteur">
+    <xs:sequence/>
+  </xs:complexType>
+
+<xs:complexType name="getAuteurResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="multiplication">
+    <xs:sequence>
+      <xs:element name="a" type="xs:double"/>
+      <xs:element name="b" type="xs:double"/>
+    </xs:sequence>
+
+  </xs:complexType>
+<xs:complexType name="multiplicationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="multiplication">
+    <wsdl:part element="tns:multiplication" name="parameters">
+
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAuteurResponse">
+    <wsdl:part element="tns:getAuteurResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplicationResponse">
+    <wsdl:part element="tns:multiplicationResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+  <wsdl:message name="getAuteur">
+    <wsdl:part element="tns:getAuteur" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addition">
+    <wsdl:part element="tns:addition" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="additionResponse">
+    <wsdl:part element="tns:additionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Calculateur">
+    <wsdl:operation name="addition">
+      <wsdl:input message="tns:addition" name="addition">
+    </wsdl:input>
+      <wsdl:output message="tns:additionResponse" name="additionResponse">
+
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuteur">
+      <wsdl:input message="tns:getAuteur" name="getAuteur">
+    </wsdl:input>
+      <wsdl:output message="tns:getAuteurResponse" name="getAuteurResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiplication">
+
+      <wsdl:input message="tns:multiplication" name="multiplication">
+    </wsdl:input>
+      <wsdl:output message="tns:multiplicationResponse" name="multiplicationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculateurImplServiceSoapBinding" type="tns:Calculateur">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addition">
+
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addition">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="additionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuteur">
+
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAuteur">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAuteurResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiplication">
+
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="multiplication">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="multiplicationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="CalculateurImplService">
+    <wsdl:port binding="tns:CalculateurImplServiceSoapBinding" name="CalculateurImplPort">
+      <soap:address location="http://localhost:8080/wsCalculateur/services/calculateur"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

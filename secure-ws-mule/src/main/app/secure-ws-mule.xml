@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	xmlns:mule-ss="http://www.mulesoft.org/schema/mule/spring-security"
+    xmlns:ss="http://www.springframework.org/schema/security"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
+	xmlns:spring="http://www.springframework.org/schema/beans" version="CE-3.3.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
+http://www.mulesoft.org/schema/mule/spring-security http://www.mulesoft.org/schema/mule/spring-security/3.1/mule-spring-security.xsd 
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd ">
+
+    <!-- NB: <mule-ss:security-manager> et <ss:authentication-manager servent a parametrer "memory-provider" 
+    reference par   <spring-sec:http-security-filter> de <http:inbound-endpoint> en mode basic http authentication -->
+    <mule-ss:security-manager>
+        <mule-ss:delegate-security-provider name="memory-provider" delegate-ref="authenticationManager" />
+    </mule-ss:security-manager>
+    <spring:beans>
+        <ss:authentication-manager alias="authenticationManager">  
+            <ss:authentication-provider> 
+                <ss:user-service id="userService"> 
+                    <ss:user name="user1" password="pwd1" authorities="ROLE_ADMIN"/>  
+                    <ss:user name="user2" password="pwd2" authorities="ROLE_ANON"/> 
+                </ss:user-service> 
+            </ss:authentication-provider> 
+        </ss:authentication-manager>
+    </spring:beans>
+    <spring:beans>
+      
+     <spring:bean id="wssBean" class="tp.ws_security.PasswordCallback" name="WssBean"/>
+        
+    </spring:beans>
+
+
+<flow name="basic-http-secure-ws" doc:name="basic-http-secure-ws">
+<http:inbound-endpoint exchange-pattern="request-response" 
+address="http://localhost:8083/secure-ws-mule/BasicHttpSecureCalculator" doc:name="HTTP-basic-auth" >
+      <mule-ss:http-security-filter realm="mule-realm"  securityProviders="memory-provider" /> 
+     <!-- <mule-ss:http-security-filter is ok with mule 3.4 but bug with mule 3.3 -->
+</http:inbound-endpoint>
+       
+<cxf:proxy-service namespace="http://service.tp/" service="CalculateurImplService"
+        payload="envelope" wsdlLocation="calculateur.wsdl" doc:name="SOAP-proxy-service">
+        </cxf:proxy-service>
+        <flow-ref name="unsecure_back_ws_subflow" doc:name="unsecure_back_ws_subflow"/>  
+</flow>
+
+
+<flow name="wss-secure-ws" doc:name="wss-secure-ws">
+<http:inbound-endpoint exchange-pattern="request-response" address="http://localhost:8083/secure-ws-mule/WSSCalculator" doc:name="HTTP"/>
+<cxf:proxy-service namespace="http://service.tp/" service="CalculateurImplService" payload="envelope" wsdlLocation="calculateur.wsdl" 
+       doc:name="WSS-SOAP-proxy-service">
+             <cxf:ws-security>
+                <cxf:ws-config>
+                    <cxf:property key="action" value="UsernameToken"/>
+                    <cxf:property key="passwordCallbackClass" value="tp.ws_security.PasswordCallback" />
+                </cxf:ws-config>
+              <!--   <cxf:ws-custom-validator>
+                    <cxf:username-token-validator ref="WssBean"/>                  
+                </cxf:ws-custom-validator> -->
+            </cxf:ws-security> 
+        </cxf:proxy-service>
+        <flow-ref name="unsecure_back_ws_subflow" doc:name="unsecure_back_ws_subflow"/>  
+        
+</flow>
+
+<flow name="unsecure_back_ws_subflow" doc:name="unsecure_back_ws_subflow" >
+	<cxf:proxy-client payload="envelope" doc:name="SOAP-proxy-client"/> 
+	<http:outbound-endpoint exchange-pattern="request-response" address="http://localhost:8080/wsCalculateur/services/calculateur" doc:name="HTTP"/>
+</flow>
+
+
+</mule>

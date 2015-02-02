@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" version="CE-3.3.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd 
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd ">
+
+<spring:beans>
+        <spring:bean id="propPretServiceBean" class="tp.proposition_pret.PropPretServiceBean" >
+            <spring:property name="calculEmpruntUrl" value="http://localhost:8080/wsBank/services/calculEmprunt"/>
+            <spring:property name="gestionTauxFraisUrl" value="http://localhost:8080/wsBank/services/gestionTauxFrais"/>
+            <spring:property name="pretAnnexeServiceUrl" value="http://localhost:8081/annexePretPort"/>
+        </spring:bean> 
+    </spring:beans>
+    <flow name="prop-pret-muleFlow" doc:name="prop-pret-muleFlow">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" doc:name="HTTP" path="propPretPort"/>
+        <cxf:jaxws-service doc:name="SOAP" doc:description="serviceClass au sens interface" serviceClass="tp.proposition_pret.PropPretService"/>
+        <component doc:name="propPretServiceBean">
+           <spring-object bean="propPretServiceBean"/>
+        </component>
+    </flow>
+    <flow name="annexe-pret-muleFlow" doc:name="annexe-pret-muleFlow">
+     <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" doc:name="HTTP" path="annexePretPort"/>
+        <cxf:jaxws-service doc:name="SOAP" doc:description="serviceClass au sens interface" serviceClass="tp.proposition_pret.PretAnnexeService"/>
+        <set-variable doc:name="set email var" doc:description="second param de l'appel soap en position 0+1 du payload" 
+        value="#[payload[1]]" variableName="email"/>
+        <expression-transformer expression="#[payload[0]]"  doc:description="premier param de l'appel soap = objet PropositionPret = nouveau payload " doc:name="Expression"/>
+        <smtp:outbound-endpoint host="localhost" responseTimeout="10000" doc:name="SMTP" from="user2@localhost" password="formation" subject="proposition de pret" to="#[flowVars['email']]" user="formation"/>
+    </flow>
+
+</mule>

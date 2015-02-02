@@ -1,0 +1,280 @@
+2013-11-07 18:43:30,597 INFO main org.mule.tooling.server.application.ApplicationDeployer - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ New app 'tx-java-mule'                                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2013-11-07 18:43:30,600 INFO main org.mule.tooling.server.application.ApplicationDeployer - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'tx-java-mule'                          +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2013-11-07 18:43:30,716 INFO main org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2013-11-07 18:43:30,783 INFO main org.mule.config.spring.MuleApplicationContext - Refreshing org.mule.config.spring.MuleApplicationContext@25502e: startup date [Thu Nov 07 18:43:30 CET 2013]; root of context hierarchy
+2013-11-07 18:43:30,834 INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/mule-spring-config.xml]
+2013-11-07 18:43:31,139 INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]
+2013-11-07 18:43:31,403 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleConfiguration': replacing [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:43:31,404 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleConfiguration': replacing [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:43:31,405 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleNotificationManager': replacing [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:43:31,405 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleNotificationManager': replacing [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:43:31,414 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleSystemModel': replacing [Root bean: class [org.mule.model.seda.SedaModel]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=dispose] with [Root bean: class [org.mule.model.seda.SedaModel]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=dispose]
+2013-11-07 18:43:31,420 INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [file:/home/formation/Bureau/tp/tp-mule-esb/workspace/.mule/apps/tx-java-mule/tx-java-mule.xml]
+2013-11-07 18:43:33,227 WARN main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Ignored XML validation warning
+org.xml.sax.SAXParseException; systemId: http://www.mulesoft.org/schema/mule/core/current/mule.xsd; lineNumber: 13; columnNumber: 100; schema_reference.4: Failed to read schema document 'http://www.springframework.org/schema/beans/spring-beans-current.xsd', because 1) could not find the document; 2) the document could not be read; 3) the root element of the document is not <xsd:schema>.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.warning(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.reportSchemaWarning(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.getSchemaDocument(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.resolveSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.constructTrees(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.parseSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaLoader.loadSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.findSchemaGrammar(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.startElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl$NSContentDispatcher.scanRootElementHook(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:75)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:388)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.mule.config.spring.MuleApplicationContext.loadBeanDefinitions(MuleApplicationContext.java:112)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:467)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:397)
+	at org.mule.config.spring.SpringRegistry.doInitialise(SpringRegistry.java:89)
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:109)
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:116)
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:73)
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:46)
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:78)
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101)
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:57)
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:46)
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:78)
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:80)
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:203)
+	at org.mule.module.launcher.application.ApplicationWrapper.init(ApplicationWrapper.java:64)
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:45)
+2013-11-07 18:43:34,148 WARN main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Ignored XML validation warning
+org.xml.sax.SAXParseException; systemId: http://www.springframework.org/schema/context/spring-context-3.0.xsd; lineNumber: 10; columnNumber: 87; schema_reference.4: Failed to read schema document 'http://www.springframework.org/schema/beans/spring-beans-current.xsd', because 1) could not find the document; 2) the document could not be read; 3) the root element of the document is not <xsd:schema>.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.warning(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.reportSchemaWarning(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.getSchemaDocument(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.resolveSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.constructTrees(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.constructTrees(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.parseSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaLoader.loadSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.findSchemaGrammar(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.startElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl$NSContentDispatcher.scanRootElementHook(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:75)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:388)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.mule.config.spring.MuleApplicationContext.loadBeanDefinitions(MuleApplicationContext.java:112)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:467)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:397)
+	at org.mule.config.spring.SpringRegistry.doInitialise(SpringRegistry.java:89)
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:109)
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:116)
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:73)
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:46)
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:78)
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101)
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:57)
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:46)
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:78)
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:80)
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:203)
+	at org.mule.module.launcher.application.ApplicationWrapper.init(ApplicationWrapper.java:64)
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:45)
+2013-11-07 18:43:34,210 ERROR main org.mule.tooling.server.application.ApplicationDeployer - null
+org.xml.sax.SAXParseException; systemId: http://www.mulesoft.org/schema/mule/core/current/mule.xsd; lineNumber: 7024; columnNumber: 51; src-resolve: Cannot resolve the name 'spring:mapType' to a(n) 'type definition' component.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.error(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.reportSchemaError(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.getGlobalDecl(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDComplexTypeTraverser.traverseComplexContent(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDComplexTypeTraverser.traverseComplexTypeDecl(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDComplexTypeTraverser.traverseGlobal(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.getGlobalDecl(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDElementTraverser.traverseNamedElement(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDElementTraverser.traverseGlobal(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.traverseSchemas(Unknown Source)
+	at org.apache.xerces.impl.xs.traversers.XSDHandler.parseSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaLoader.loadSchema(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.findSchemaGrammar(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.startElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl$NSContentDispatcher.scanRootElementHook(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source)
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:75)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:388)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.mule.config.spring.MuleApplicationContext.loadBeanDefinitions(MuleApplicationContext.java:112)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:467)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:397)
+	at org.mule.config.spring.SpringRegistry.doInitialise(SpringRegistry.java:89)
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:109)
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:116)
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:73)
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:46)
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:78)
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101)
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:57)
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:46)
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:78)
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:80)
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:203)
+	at org.mule.module.launcher.application.ApplicationWrapper.init(ApplicationWrapper.java:64)
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:45)
+2013-11-07 18:48:55,729 INFO main org.mule.tooling.server.application.ApplicationDeployer - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ New app 'tx-java-mule'                                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2013-11-07 18:48:55,732 INFO main org.mule.tooling.server.application.ApplicationDeployer - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'tx-java-mule'                          +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2013-11-07 18:48:55,850 INFO main org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2013-11-07 18:48:55,922 INFO main org.mule.config.spring.MuleApplicationContext - Refreshing org.mule.config.spring.MuleApplicationContext@25502e: startup date [Thu Nov 07 18:48:55 CET 2013]; root of context hierarchy
+2013-11-07 18:48:55,978 INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/mule-spring-config.xml]
+2013-11-07 18:48:56,283 INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]
+2013-11-07 18:48:56,559 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleConfiguration': replacing [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:48:56,559 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleConfiguration': replacing [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.MuleConfigurationConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:48:56,560 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleNotificationManager': replacing [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:48:56,560 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleNotificationManager': replacing [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]] with [Generic bean: class [org.mule.config.spring.ServerNotificationManagerConfigurator]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=null; defined in URL [jar:file:/opt/MuleStudio/plugins/org.mule.tooling.server.3.2.1_1.0.0.201201200937/mule/mule/mule-module-spring-config-3.2.1.jar!/default-mule-config.xml]]
+2013-11-07 18:48:56,567 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean '_muleSystemModel': replacing [Root bean: class [org.mule.model.seda.SedaModel]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=dispose] with [Root bean: class [org.mule.model.seda.SedaModel]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=dispose]
+2013-11-07 18:48:56,572 INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from URL [file:/home/formation/Bureau/tp/tp-mule-esb/workspace/.mule/apps/tx-java-mule/tx-java-mule.xml]
+2013-11-07 18:48:56,754 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean 'Object_to_XML': replacing [Root bean: class [org.mule.module.xml.transformer.ObjectToXml]; scope=prototype; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.mule.module.xml.transformer.ObjectToXml]; scope=prototype; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2013-11-07 18:48:56,755 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean 'Object_to_String': replacing [Root bean: class [org.mule.transformer.simple.ObjectToString]; scope=prototype; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.mule.transformer.simple.ObjectToString]; scope=prototype; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+2013-11-07 18:48:56,759 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Overriding bean definition for bean 'tx-java-muleFlow1': replacing [Root bean: class [org.mule.construct.Flow]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=dispose] with [Root bean: class [org.mule.construct.Flow]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=initialise; destroyMethodName=dispose]
+2013-11-07 18:48:56,777 WARN main org.mule.config.spring.parsers.assembly.DefaultBeanAssembler - Cannot assign class java.lang.Object to interface org.mule.api.AnnotatedObject
+2013-11-07 18:48:57,025 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@16dad47: defining beans [_muleCustomEditorConfigurer,_muleObjectNameProcessor,_mulePropertyPlaceholderProcessor,_muleSimpleRegistryBootstrap,_muleNotificationManager,_muleAnnotationsProcessor,_muleTransformerAnnotationProcessor,_muleConfiguration,._muleNotificationManager:notification.1,._muleNotificationManager:notification.2,._muleNotificationManager:notification.3,._muleNotificationManager:notification.4,._muleNotificationManager:notification.5,._muleNotificationManager:notification.6,._muleNotificationManager:notification.7,._muleNotificationManager:notification.8,._muleNotificationManager:notification.9,._muleNotificationManager:notification.10,_muleSystemModel,_defaultInMemoryQueueStore,_defaultPersistentQueueStore,_muleQueueManager,_muleObjectStoreManager,_muleSecurityManager,_muleProperties,_muleEndpointFactory,_muleStreamCloserService,_defaultThreadingProfile,_defaultMessageDispatcherThreadingProfile,_defaultMessageRequesterThreadingProfile,_defaultMessageReceiverThreadingProfile,_defaultServiceThreadingProfile,_defaultRetryPolicyTemplate,stdCalculatorBean,Object_to_XML,Object_to_String,tx-java-muleFlow1,.tx-java-muleFlow1:inbound-endpoint.11,.tx-java-muleFlow1:jaxws-service.12,.tx-java-muleFlow1:component.13,.tx-java-muleFlow1:component.13:spring-object.14]; root of factory hierarchy
+2013-11-07 18:48:57,636 INFO main org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2013-11-07 18:48:57,870 INFO main org.mule.lifecycle.AbstractLifecycleManager - Initialising connector: connector.http.mule.default
+2013-11-07 18:48:57,939 INFO main org.mule.construct.FlowConstructLifecycleManager - Initialising flow: tx-java-muleFlow1
+2013-11-07 18:48:57,939 INFO main org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@15462fc
+2013-11-07 18:48:57,947 INFO main org.mule.processor.SedaStageLifecycleManager - Initialising service: tx-java-muleFlow1.stage1
+2013-11-07 18:48:57,960 INFO main org.apache.cxf.bus.spring.BusApplicationContext - Refreshing org.apache.cxf.bus.spring.BusApplicationContext@13570ae: startup date [Thu Nov 07 18:48:57 CET 2013]; root of context hierarchy
+2013-11-07 18:48:57,972 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2013-11-07 18:48:58,037 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-ws-security.xml]
+2013-11-07 18:48:58,040 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-local.xml]
+2013-11-07 18:48:58,043 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-addr.xml]
+2013-11-07 18:48:58,047 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-xml.xml]
+2013-11-07 18:48:58,051 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-http.xml]
+2013-11-07 18:48:58,053 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2013-11-07 18:48:58,058 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-rm.xml]
+2013-11-07 18:48:58,062 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-jaxws.xml]
+2013-11-07 18:48:58,064 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-wstx-msv-validation.xml]
+2013-11-07 18:48:58,119 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@2a1961: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.service.factory.FactoryBeanListenerManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.ws.security.policy.WSSecurityPolicyLoader,org.apache.cxf.transport.local.LocalTransportFactory,org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder,org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider,org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder,org.apache.cxf.binding.xml.XMLBindingFactory,org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder,org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder,org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider,org.apache.cxf.transport.http.ClientOnlyHTTPTransportFactory,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.ws.rm.RMManager,org.apache.cxf.ws.rm.policy.RMPolicyInterceptorProvider,org.apache.cxf.ws.rm.policy.RMAssertionBuilder,org.apache.cxf.jaxws.context.WebServiceContextResourceResolver,org.apache.cxf.jaxws.context.WebServiceContextImpl,org.apache.cxf.wstx_msv_validation.WoodstoxValidationImpl]; root of factory hierarchy
+2013-11-07 18:48:58,167 INFO main org.apache.cxf.bus.spring.BusApplicationContext - Refreshing org.apache.cxf.bus.spring.BusApplicationContext@a013f6: startup date [Thu Nov 07 18:48:58 CET 2013]; root of context hierarchy
+2013-11-07 18:48:58,174 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf.xml]
+2013-11-07 18:48:58,182 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-ws-security.xml]
+2013-11-07 18:48:58,184 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-local.xml]
+2013-11-07 18:48:58,186 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-addr.xml]
+2013-11-07 18:48:58,191 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-xml.xml]
+2013-11-07 18:48:58,193 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-http.xml]
+2013-11-07 18:48:58,195 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-soap.xml]
+2013-11-07 18:48:58,200 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-rm.xml]
+2013-11-07 18:48:58,203 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-jaxws.xml]
+2013-11-07 18:48:58,205 INFO main org.apache.cxf.bus.spring.ControlledValidationXmlBeanDefinitionReader - Loading XML bean definitions from class path resource [META-INF/cxf/cxf-extension-wstx-msv-validation.xml]
+2013-11-07 18:48:58,220 INFO main org.springframework.beans.factory.support.DefaultListableBeanFactory - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1f1e5b5: defining beans [cxf,org.apache.cxf.bus.spring.BusApplicationListener,org.apache.cxf.bus.spring.BusWiringBeanFactoryPostProcessor,org.apache.cxf.bus.spring.Jsr250BeanPostProcessor,org.apache.cxf.bus.spring.BusExtensionPostProcessor,org.apache.cxf.resource.ResourceManager,org.apache.cxf.configuration.Configurer,org.apache.cxf.binding.BindingFactoryManager,org.apache.cxf.transport.DestinationFactoryManager,org.apache.cxf.transport.ConduitInitiatorManager,org.apache.cxf.wsdl.WSDLManager,org.apache.cxf.phase.PhaseManager,org.apache.cxf.workqueue.WorkQueueManager,org.apache.cxf.buslifecycle.BusLifeCycleManager,org.apache.cxf.endpoint.ServerRegistry,org.apache.cxf.endpoint.ServerLifeCycleManager,org.apache.cxf.endpoint.ClientLifeCycleManager,org.apache.cxf.transports.http.QueryHandlerRegistry,org.apache.cxf.endpoint.EndpointResolverRegistry,org.apache.cxf.headers.HeaderManager,org.apache.cxf.catalog.OASISCatalogManager,org.apache.cxf.service.factory.FactoryBeanListenerManager,org.apache.cxf.endpoint.ServiceContractResolverRegistry,org.apache.cxf.ws.security.policy.WSSecurityPolicyLoader,org.apache.cxf.transport.local.LocalTransportFactory,org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder,org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider,org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder,org.apache.cxf.binding.xml.XMLBindingFactory,org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder,org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder,org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider,org.apache.cxf.transport.http.ClientOnlyHTTPTransportFactory,org.apache.cxf.binding.soap.SoapBindingFactory,org.apache.cxf.binding.soap.SoapTransportFactory,org.apache.cxf.binding.soap.customEditorConfigurer,org.apache.cxf.ws.rm.RMManager,org.apache.cxf.ws.rm.policy.RMPolicyInterceptorProvider,org.apache.cxf.ws.rm.policy.RMAssertionBuilder,org.apache.cxf.jaxws.context.WebServiceContextResourceResolver,org.apache.cxf.jaxws.context.WebServiceContextImpl,org.apache.cxf.wstx_msv_validation.WoodstoxValidationImpl]; root of factory hierarchy
+2013-11-07 18:48:58,257 INFO main org.mule.module.cxf.config.WebServiceFactoryBean - Built CXF Inbound MessageProcessor for service class std.Calculator
+2013-11-07 18:48:58,286 INFO main org.apache.cxf.service.factory.ReflectionServiceFactoryBean - Creating Service {http://std/}CalculatorService from class std.Calculator
+2013-11-07 18:48:58,837 INFO main org.apache.cxf.endpoint.ServerImpl - Setting the server's publish address to be http://localhost:8081/StdCalculateurPort
+2013-11-07 18:48:58,850 INFO main org.mule.component.ComponentLifecycleManager - Initialising component: commponent.27498418
+2013-11-07 18:48:58,859 INFO main org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/formation/Bureau/tp/tp-mule-esb/workspace/.mule/apps/tx-java-mule/tx-java-mule.xml'}]"
+2013-11-07 18:48:58,859 INFO main org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/formation/Bureau/tp/tp-mule-esb/workspace/.mule/apps/tx-java-mule/tx-java-mule.xml'}]"
+2013-11-07 18:48:58,859 INFO main org.mule.tooling.server.application.ApplicationDeployer - Monitoring for hot-deployment: /home/formation/Bureau/tp/tp-mule-esb/workspace/.mule/apps/tx-java-mule/tx-java-mule.xml
+2013-11-07 18:48:58,860 INFO main org.mule.tooling.server.application.ApplicationDeployer - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'tx-java-mule'                              +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2013-11-07 18:48:58,862 INFO main org.mule.util.queue.TransactionalQueueManager - Starting ResourceManager
+2013-11-07 18:48:58,920 INFO main org.mule.util.queue.TransactionalQueueManager - Started ResourceManager
+2013-11-07 18:48:58,923 INFO main org.mule.transport.http.HttpConnector - Connected: HttpConnector
+{
+  name=connector.http.mule.default
+  lifecycle=initialise
+  this=1d9589c
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[http]
+  serviceOverrides=<none>
+}
+
+2013-11-07 18:48:58,924 INFO main org.mule.transport.http.HttpConnector - Starting: HttpConnector
+{
+  name=connector.http.mule.default
+  lifecycle=initialise
+  this=1d9589c
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[http]
+  serviceOverrides=<none>
+}
+
+2013-11-07 18:48:58,924 INFO main org.mule.lifecycle.AbstractLifecycleManager - Starting connector: connector.http.mule.default
+2013-11-07 18:48:58,928 INFO main org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2013-11-07 18:48:58,929 INFO main org.mule.construct.FlowConstructLifecycleManager - Starting flow: tx-java-muleFlow1
+2013-11-07 18:48:58,930 INFO main org.mule.processor.SedaStageLifecycleManager - Starting service: tx-java-muleFlow1.stage1
+2013-11-07 18:48:58,935 INFO main org.mule.component.ComponentLifecycleManager - Starting component: commponent.27498418
+2013-11-07 18:48:58,957 INFO main org.mule.transport.http.HttpConnector - Registering listener: tx-java-muleFlow1 on endpointUri: http://localhost:8081/StdCalculateurPort
+2013-11-07 18:48:58,962 INFO main org.mule.transport.service.DefaultTransportServiceDescriptor - Loading default response transformer: org.mule.transport.http.transformers.MuleMessageToHttpResponse
+2013-11-07 18:48:58,972 INFO main org.mule.lifecycle.AbstractLifecycleManager - Initialising: 'null'. Object is: HttpMessageReceiver
+2013-11-07 18:48:58,975 INFO main org.mule.lifecycle.AbstractLifecycleManager - Starting: 'null'. Object is: HttpMessageReceiver
+2013-11-07 18:48:58,977 INFO main org.mule.tooling.server.application.ApplicationDeployer - Reload interval: 3000
+2013-11-07 18:48:58,978 INFO main org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2013-11-07 18:48:58,993 INFO main org.mule.module.management.agent.JmxAgent - Attempting to register service with name: Mule.tx-java-mule:type=Endpoint,service="tx-java-muleFlow1",connector=connector.http.mule.default,name="endpoint.http.localhost.8081.StdCalculateurPort"
+2013-11-07 18:48:58,993 INFO main org.mule.module.management.agent.JmxAgent - Registered Endpoint Service with name: Mule.tx-java-mule:type=Endpoint,service="tx-java-muleFlow1",connector=connector.http.mule.default,name="endpoint.http.localhost.8081.StdCalculateurPort"
+2013-11-07 18:48:58,994 INFO main org.mule.module.management.agent.JmxAgent - Registered Connector Service with name Mule.tx-java-mule:type=Connector,name="connector.http.mule.default.1"
+2013-11-07 18:48:58,996 INFO main org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: tx-java-mule                                          *
+* OS encoding: UTF-8, Mule encoding: UTF-8                           *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+**********************************************************************
+2013-11-07 18:48:58,996 INFO main org.mule.module.launcher.DeploymentService - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Started app 'tx-java-mule'                               +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

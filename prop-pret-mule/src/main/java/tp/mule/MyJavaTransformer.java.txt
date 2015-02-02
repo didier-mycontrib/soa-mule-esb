@@ -1,0 +1,34 @@
+package tp.mule;
+
+import org.mule.api.MuleMessage;
+import org.mule.api.transformer.TransformerException;
+import org.mule.api.transport.PropertyScope;
+import org.mule.transformer.AbstractMessageTransformer;
+
+//transformateur spécifique (codé en java) et devant être explicitement référencé dans le flow
+//via 
+//<custom-transformer class="tp.mule.MyJavaTransformer" doc:name="Java specif transformer"/> 
+
+public class MyJavaTransformer  extends AbstractMessageTransformer{
+	
+	@Override
+	public Object transformMessage(MuleMessage message, String outputEncoding)
+			throws TransformerException {
+		Object resObj = message.getPayload();
+		try{
+		Object tabObj[] = (Object[])resObj;	
+		   //System.out.println("payload-type=" + tabObj[0].getClass().getName() + " , payload=" + tabObj[0]);
+		   message.setProperty("email", tabObj[0+1], PropertyScope.SESSION);
+		}catch(Exception ex){
+			System.err.println(ex.getMessage());
+		}
+		for(String propName : message.getInboundPropertyNames()){
+			System.out.println("inboundProperty: " + propName + "="+message.getInboundProperty(propName));
+		}
+			
+		return resObj;
+	}
+	
+     
+
+}

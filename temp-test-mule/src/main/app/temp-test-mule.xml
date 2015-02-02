@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" 
+xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" 
+xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" 
+xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
+	xmlns:spring="http://www.springframework.org/schema/beans" version="CE-3.3.1" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd 
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd 
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd 
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd 
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd 
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd ">
+
+<jms:activemq-connector name="jmsConnector" specification="1.1" brokerURL="tcp://localhost:61616" maxRedelivery="3" doc:name="Active MQ"/> 
+<jms:object-to-jmsmessage-transformer name="objectToJms" doc:name="Object to JmsMessage"/>
+ <mulexml:object-to-xml-transformer name="objectToXml" doc:name="Object to XML"/>
+ <object-to-string-transformer name="objectToString" doc:name="Object to String"/>
+ 
+    <spring:beans>
+        <spring:bean id="automaticAnotatedTransformerBean" class="std.mule.AutomaticAnotatedTransformerBean"/>
+    </spring:beans>
+   
+ 
+ <!-- nb: soit automaticAnotatededTransformerBean en tant que bean spring utilise automatiquement
+          soit  OperationTransformer à explicitement référencé dans le flow via custom-transformer -->
+          
+<flow name="basic_bpm" doc:name="basic_bpm">
+        <http:inbound-endpoint exchange-pattern="request-response" 
+        host="localhost" port="8081" path="mule_bpm_helloWorld" doc:name="HTTP"/>
+        <http:body-to-parameter-map-transformer doc:name="Body to Parameter Map"/>
+        <wire-tap>
+            <vm:outbound-endpoint path="toBpmBranch"/>
+        </wire-tap>
+        <scripting:component doc:name="Groovy">
+            <scripting:script engine="Groovy" >
+                return "hello " + payload.get("user")
+            </scripting:script>
+        </scripting:component>
+</flow>          
+
+<flow name="parallel_subflow" doc:name="parallel_subflow">
+        <vm:inbound-endpoint exchange-pattern="one-way" path="toBpmBranch" doc:name="VM-toBpmBranch"/>
+        <file:outbound-endpoint path="/home/formation/Bureau/tp/temp" 
+        outputPattern="HttpHelloCall#[function:datestamp:dd-MM-yy-HH-mm-ss].txt" 
+         doc:name="File"/>
+</flow>
+ 
+ <flow name="flowWithJavaSpecificTransformer" doc:name="flowWithJavaSpecificTransformer">
+        <http:inbound-endpoint exchange-pattern="request-response" address="http://localhost:8081/StdCalculateurPort" doc:name="HTTP"/>
+        <cxf:proxy-service namespace="http://standard/" service="StdCalculateurService" payload="body"
+         wsdlLocation="StdCalculateur.wsdl" doc:name="SOAP"/>
+         
+         
+        <!-- <transformer ref="objectToString" doc:name="Transformer Reference"/> -->
+         <!-- <custom-transformer class="std.mule.OperationTransformer" doc:name="Java specif transformer"/> -->
+        <component doc:name="Java Pojo calc" class="std.SimplePojoCalculator" />
+             
+      
+    </flow>
+    
+    
+    <flow name="flow-http-to-jms-over-http" doc:name="flow-http-to-jms-over-http">
+        <http:inbound-endpoint exchange-pattern="request-response" address="http://localhost:8081/HttpCalculateurPort" doc:name="HTTP"/>
+       
+       
+        <object-to-string-transformer doc:name="Object to String"/>
+        
+       <!--  <set-variable doc:name="set soap_env var"  value="#[payload]" variableName="soap_env"/>  -->    
+        
+        <file:outbound-endpoint path="/home/formation/Bureau/tp/temp" 
+          outputPattern="HttpSoapCall_#[function:datestamp:dd-MM-yy-HH-mm-ss].xml" responseTimeout="10000" doc:name="Log File"/>
+      
+        <!-- <cxf:jaxws-service serviceClass="tp.service.Calculateur" doc:name="SOAP"/>--> <!-- interface --> 
+         
+        <cxf:proxy-service namespace="http://service.tp/" service="CalculateurImplService" payload="envelope" 
+        wsdlLocation="calculateur.wsdl" doc:name="SOAP proxy service (for ?wsdl)"/>   
+        <cxf:proxy-client payload="envelope" doc:name="SOAP client"/> 
+        
+        <!--   <expression-transformer expression="#[flowVars['soap_env']]"   doc:name="Expression"/> -->
+        
+         <!-- transformer-refs="objectToString objectToJms" si necessaire selon contexte -->
+        <jms:outbound-endpoint queue="queue.calculateur" 
+        connector-ref="jmsConnector" doc:name="JMS" exchange-pattern="request-response"/>   
+        
+    </flow>
+    
+    
+     <flow name="flow-http-to-jms" doc:name="flow-http-to-jms">
+        <http:inbound-endpoint exchange-pattern="request-response" address="http://localhost:8081/HttpToJms" doc:name="HTTP"/>
+        <set-payload value="&lt;notification&gt;&lt;subject&gt;s1&lt;/subject&gt;&lt;message&gt;m1&lt;/message&gt;&lt;/notification&gt;" doc:name="Set Payload"/>
+       
+      
+       
+         <!-- transformer-refs="objectToString objectToJms" si necessaire selon contexte -->
+        <jms:outbound-endpoint queue="queue.not" transformer-refs="objectToString objectToJms"
+        connector-ref="jmsConnector" doc:name="JMS" />   
+        
+    </flow>
+</mule>
