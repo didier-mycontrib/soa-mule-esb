@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:jetty="http://www.mulesoft.org/schema/mule/jetty" xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
 	xmlns:file="http://www.mulesoft.org/schema/mule/file"
 	xmlns:http="http://www.mulesoft.org/schema/mule/http"
 	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
@@ -8,7 +8,7 @@
 	xmlns="http://www.mulesoft.org/schema/mule/core"
  xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
   xmlns:spring="http://www.springframework.org/schema/beans" 
-  version="CE-3.2.1" 
+  version="EE-3.6.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
 http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
@@ -16,23 +16,27 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/jetty http://www.mulesoft.org/schema/mule/jetty/current/mule-jetty.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
    <!-- <jms:activemq-connector name="jmsConnector" specification="1.1" brokerURL="tcp://localhost:61616" maxRedelivery="3" doc:name="Active MQ"/> --> 
     <jms:object-to-jmsmessage-transformer name="objectToJms" doc:name="Object to JMSMessage"/>
     <object-to-string-transformer name="objectToString" doc:name="Object to String"/>
-    <flow name="flows1Flow1" doc:name="flows1Flow1">
-        <http:inbound-endpoint exchange-pattern="request-response" address="http://localhost:8082/tx-xslt-mule/StdCalculateurPort" doc:name="HTTP"/>
+    
+    <flow name="flow1" >
+        <jetty:inbound-endpoint exchange-pattern="request-response" address="http://localhost:8082/tx-xslt-mule/StdCalculateurPort" doc:name="Jetty-HTTP"/>
         <cxf:proxy-service namespace="http://standard/" service="StdCalculateurService" payload="body" wsdlLocation="StdCalculateur.wsdl" doc:name="SOAP"/>
-        <mulexml:xslt-transformer maxIdleTransformers="2" maxActiveTransformers="5" xsl-file="std_to_basic.xslt" doc:name="XSLT"/>        
+        <mulexml:xslt-transformer maxIdleTransformers="2" maxActiveTransformers="5" xsl-file="std_to_basic.xslt" doc:name="XSLT"/>
+        <response>
+            <mulexml:xslt-transformer xsl-file="basic_to_std.xslt" maxIdleTransformers="2" maxActiveTransformers="5" doc:name="XSLT"/>
+        </response>
+        
        <!-- <jms:outbound-endpoint queue="queue.A" 
         connector-ref="jmsConnector" 
         transformer-refs="objectToString objectToJms" doc:name="JMS"/> -->
         <file:outbound-endpoint path="/home/formation/Bureau/tp/temp" 
         outputPattern="AdditionCall_#[function:datestamp:dd-MM-yy-HH-mm-ss].xml" doc:name="File"/>
-        <response>
-            <mulexml:xslt-transformer maxIdleTransformers="2" maxActiveTransformers="5" xsl-file="basic_to_std.xslt" doc:name="XSLT"/>
-        </response>
         <cxf:proxy-client payload="body" doc:name="SOAP"/>
-        <http:outbound-endpoint exchange-pattern="request-response" address="http://localhost:8080/wsCalculateur/services/calculateur" doc:name="HTTP"/>
+        <http:outbound-endpoint exchange-pattern="request-response" address="http://localhost:8080/wsCalculateur/services/calculateur" doc:name="Jetty-HTTP"/>
     </flow>
 </mule>

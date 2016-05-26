@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" 
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" 
 xmlns:jetty="http://www.mulesoft.org/schema/mule/jetty" 
 xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" 
 xmlns:http="http://www.mulesoft.org/schema/mule/http" 
@@ -9,15 +10,19 @@ xmlns="http://www.mulesoft.org/schema/mule/core"
 xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" 
 xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.0" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://www.springframework.org/schema/beans 
+xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.springframework.org/schema/beans 
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.mulesoft.org/schema/mule/core 
 http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/xml/current/vm.xsd
 http://www.mulesoft.org/schema/mule/jetty http://www.mulesoft.org/schema/mule/jetty/current/mule-jetty.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+   
     <spring:beans>
         <spring:bean id="basicCalWsProxyFactory" class="generic.WsDynProxyFactory" >
             <spring:property name="proxyWsUrl" value="http://localhost:8080/wsCalculateur/services/calculateur"/>
@@ -28,31 +33,41 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
         </spring:bean>
         
         <spring:bean id="basicCalWsProxy" factory-bean="basicCalWsProxyFactory"  factory-method="getWsPort"/>
-        
-        
-        <spring:bean id="stdCalculatorBean" class="std.CalculatorBean" >
-            <spring:property name="calcProxy" ref="basicCalWsProxy"/> <!-- avec  injection de dependance -->
-        </spring:bean> 
-    </spring:beans>
-    
+       </spring:beans>
 
     <flow name="tx-java-muleFlow1" >
        
        <jetty:inbound-endpoint exchange-pattern="request-response"
           doc:name="Jetty-http"
           address="http://localhost:8081/tx-java-mule/StdCalculateurPort"/>
-      <!-- 
-        <logger message="soap_request : #[message.payload:java.lang.String]" level="INFO" category="tp" doc:name="Logger"/>
-       -->
+     
         <!-- nb: l'attribut serviceClass de cxf:jaxws-service a une valeur correspondante à l'interface du WS Soap -->
         <cxf:jaxws-service doc:name="SOAP" serviceClass="std.Calculator"/>
+        
+           <logger  level="INFO" doc:name="Logger"/>
        
-            <component doc:name="Java">
-                <spring-object bean="stdCalculatorBean"/>
-                <!-- en faisant reference a un composant spring 
-                            on peut avoir de l'injection de dependance -->
+            <component class="std.CalculatorBean" doc:name="Java">
+                <binding interface="tp.service.Calculateur"  >  <!-- method="addition" ici faculatif -->
+                <!-- binding ne fixe pas de propriété "methode_appelée" dans l'entete : quel dommage !!!!!! -->
+                   <vm:outbound-endpoint path="callBasicWsCalculateur" exchange-pattern="request-response"  />
+                 
+                </binding>
             </component>
    
-     
     </flow>
+    
+    <flow name="f2">
+     <vm:inbound-endpoint path="callBasicWsCalculateur"
+        exchange-pattern="request-response" />
+      <logger  level="INFO" doc:name="Logger"/>
+      
+      <cxf:jaxws-client operation="addition"  
+                       serviceClass="tp.service.Calculateur" /> <!-- operation="addition" ici obligatoire !!!!  -->
+          
+     <http:outbound-endpoint address="http://localhost:8080/wsCalculateur/services/calculateur" />
+    </flow>
+    
+    
+    
+    
 </mule>

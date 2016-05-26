@@ -13,27 +13,19 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.mulesoft.org/schema/mule/core 
 http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+...
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.mulesoft.org/schema/mule/jetty http://www.mulesoft.org/schema/mule/jetty/current/mule-jetty.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
     <spring:beans>
-        <spring:bean id="basicCalWsProxyFactory" class="generic.WsDynProxyFactory" >
+        <spring:bean id="stdCalculatorBean" class="std.CalculatorBean" name="Bean">
             <spring:property name="proxyWsUrl" value="http://localhost:8080/wsCalculateur/services/calculateur"/>
-            <spring:property name="namespace" value="http://service.tp/" />
-	 		<spring:property name="portName" value="CalculateurImplPort" />
-	 		<spring:property name="serviceName" value="CalculateurImplService" />
-	 		<spring:property name="interfaceName" value="tp.service.Calculateur" />
-        </spring:bean>
-        
-        <spring:bean id="basicCalWsProxy" factory-bean="basicCalWsProxyFactory"  factory-method="getWsPort"/>
-        
-        
-        <spring:bean id="stdCalculatorBean" class="std.CalculatorBean" >
-            <spring:property name="calcProxy" ref="basicCalWsProxy"/> <!-- avec  injection de dependance -->
-        </spring:bean> 
+        </spring:bean> <!-- avec eventuelle injection de dependance -->
     </spring:beans>
+    <mulexml:object-to-xml-transformer name="Object_to_XML" doc:name="Object to XML"/>
+    <object-to-string-transformer name="Object_to_String" doc:name="Object to String"/>
     
 
     <flow name="tx-java-muleFlow1" >
@@ -46,13 +38,22 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
        -->
         <!-- nb: l'attribut serviceClass de cxf:jaxws-service a une valeur correspondante à l'interface du WS Soap -->
         <cxf:jaxws-service doc:name="SOAP" serviceClass="std.Calculator"/>
-       
+        <!--
+        <wire-tap>
+            <processor-chain>
+                <mulexml:object-to-xml-transformer doc:name="Object to XML"/>
+                <logger message="soap_request_params : #[message.payload]" level="INFO" category="tp" doc:name="Logger"/>
+            </processor-chain>
+        </wire-tap>
+        -->
             <component doc:name="Java">
                 <spring-object bean="stdCalculatorBean"/>
                 <!-- en faisant reference a un composant spring 
                             on peut avoir de l'injection de dependance -->
             </component>
    
-     
+        
+        <!-- implementation : classe java avec @WebService -->
+        <!-- <component class="std.CalculatorBean" doc:name="Java"/> -->
     </flow>
 </mule>

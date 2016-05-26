@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jetty="http://www.mulesoft.org/schema/mule/jetty" 
+xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf" 
+xmlns:rmi="http://www.mulesoft.org/schema/mule/rmi"
+ xmlns="http://www.mulesoft.org/schema/mule/core" 
+ xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.mulesoft.org/schema/mule/jetty http://www.mulesoft.org/schema/mule/jetty/current/mule-jetty.xsd
+http://www.mulesoft.org/schema/mule/rmi http://www.mulesoft.org/schema/mule/rmi/current/mule-rmi.xsd">
+    <spring:beans>
+      <!--  <spring:bean name="jndiFactory" class="org.mule.transport.rmi.MuleRMIFactory"/> 
+           in mule bad documentation but MuleRMIFactory does not exist !!! -->
+        <spring:bean name="jndiFactory" class="com.sun.jndi.rmi.registry.RegistryContextFactory"/>
+       <spring:bean name="jndiContext" factory-bean="jndiFactory" factory-method="getInitialContext">
+           <spring:constructor-arg >
+                <spring:null />
+           </spring:constructor-arg> 
+       </spring:bean>
+    </spring:beans>
+    <rmi:connector name="rmi" jndiContext-ref="jndiContext" securityPolicy="rmi.policy" doc:name="RMI"/>
+    
+    <flow name="soap-rmiFlow">
+        <jetty:inbound-endpoint address="http://localhost:8081/Calculateur"
+        exchange-pattern="request-response" doc:name="Jetty"/>
+        
+          <cxf:jaxws-service doc:name="SOAP" serviceClass="tp.service.Calculateur"/>
+        
+        
+        <logger level="INFO" doc:name="Logger"/>
+        
+        <!--   
+         <rmi:outbound-endpoint name="addition-rmi" host="127.0.0.1" port="12345" object="rmiRemoteCalculateur"
+              method="addition" methodArgumentTypes="java.lang.Double,java.lang.Double"
+               exchange-pattern="request-response" responseTimeout="10000" doc:name="RMI"/> -->
+               
+            <!--  TRES MAUVAISE DOCUMENTATION  du connecteur RMI au sein de MULE-ESB 
+                   ===> DEMANDER AU SUPPORT  "MuleSoft"  -->   
+            
+           <rmi:outbound-endpoint name="addition-rmi" address="rmi://127.0.0.1:12345/rmiRemoteCalculateur"
+              method="addition" methodArgumentTypes="java.lang.Double,java.lang.Double"
+               exchange-pattern="request-response" responseTimeout="10000" doc:name="RMI"/>
+              
+    </flow>
+</mule>
